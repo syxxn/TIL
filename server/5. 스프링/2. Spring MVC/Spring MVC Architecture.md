@@ -29,6 +29,8 @@
   + Model/View에 대한 사용자 입력 및 요청을 수신하여 그에 따라 적절한 결과를 Model에 담아 View에 전달한다. 즉, Model Object와 이 Model을 화면에 출력할 View Name을 반환한다.
   + Controller —> Service —> Dao —> DB
   + Servlet
+  
+  ![image info](springbootmvc.png)
 
 
 
