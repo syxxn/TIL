@@ -4,7 +4,11 @@
 
 
 
-Spring은 Spring Triangle이라고 부르는 세 가지 개념 Ioc, AOP, PSA를 제공해준다.
+Spring은 <u>Spring Triangle</u>이라고 부르는 세 가지 개념 Ioc, AOP, PSA를 제공해준다.
+
+> 스프링의 기반이 되는 설계 개념을 표현한 것
+
+
 
 
 
