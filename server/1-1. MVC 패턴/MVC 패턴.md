@@ -56,7 +56,7 @@ ____
 
 
 
-![image info](캡처.PNG)
+![image info](umvc.png)
 
 
 
