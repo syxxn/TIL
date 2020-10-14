@@ -1,6 +1,6 @@
-# DTO DAO
+# DAO DTO
 
-### DTO (Data Transfer Object)
+### DAO(Data Access Object)
 
 **DB에 접근하여 정보 가져옴** `Repository`
 
@@ -71,11 +71,11 @@ public class TestDao {
 
 
 
-![image info](C:/Users/user/Desktop/git syxxn/TIL/basic/2. client&server/2. 서버/구조.png)
+![image info](구조.png)
 
 
 
-### DAO(Data Access Object)
+### DTO (Data Transfer Object)
 
 **데이터 형태 변환**  `payload` (`request`,  `response`)
 
@@ -107,6 +107,10 @@ public class TestDao {
   + Presentation Model
   + `toEntity()`메소드를 통해서 DTO에서 필요한 부분을 이용하여 Entity로 만든다
   + Controller Layer에서 Response DTO 형태로 Client에 전달
+
+#### Entity 클래스와 DTO 클래스를 분리하는 이유
+
++ 
 
 
 
