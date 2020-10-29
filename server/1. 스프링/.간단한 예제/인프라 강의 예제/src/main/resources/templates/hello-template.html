@@ -1,0 +1,7 @@
+<!--웹브라우저에서 접속하면 스프링 컨테이너에서 템플릿 엔진을 처리하여 HTML을 변환후 응답-->
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--/*@thymesVar id="name" type=""*/-->
+<p th:text="'hello '+${name}">hello! empty</p>
+</body>
+</html>
