@@ -1,15 +1,14 @@
 package sxxyn.hellospring.member.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import sxxyn.hellospring.member.domain.Member;
 import sxxyn.hellospring.member.domain.repository.MemberRepository;
-import sxxyn.hellospring.member.domain.repository.MemoryMemberRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 //@Service //스프링 컨테이너에 등록
+@Transactional
 public class MemberService {
     //서비스는 비즈니스에 의존적 /역할에 맞도록 네이밍
     //레포지토리는 기계적인 처리/

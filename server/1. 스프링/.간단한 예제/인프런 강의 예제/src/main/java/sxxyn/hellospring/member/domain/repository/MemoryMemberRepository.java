@@ -5,7 +5,7 @@ import sxxyn.hellospring.member.domain.Member;
 
 import java.util.*;
 
-//@Repository
+
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store=new HashMap<>();
@@ -35,6 +35,7 @@ public class MemoryMemberRepository implements MemberRepository{
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
 
     public void clearStore(){
         store.clear();

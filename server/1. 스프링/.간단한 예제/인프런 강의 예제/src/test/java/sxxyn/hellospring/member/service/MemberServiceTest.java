@@ -3,14 +3,14 @@ package sxxyn.hellospring.member.service;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.annotation.Commit;
 import sxxyn.hellospring.member.domain.Member;
-import sxxyn.hellospring.member.domain.repository.MemberRepository;
 import sxxyn.hellospring.member.domain.repository.MemoryMemberRepository;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class MemberServiceTest {
+class MemberServiceTest { //단위테스트
 
     MemberService memberService;
     MemoryMemberRepository memberRepository;
@@ -27,11 +27,12 @@ class MemberServiceTest {
     }
 
     @Test
+    @Commit
     //테스트는 정상도 중요한데 오류도 몹시 중요하다 /터트려 지는것도 봐야해!!!
     public void  회원가입() { //test 코드는 한국어로 이름 적어도 된다!
         //given
         Member member=new Member();
-        member.setName("hello");
+        member.setName("hello~~");
         //when
         Long saveId=memberService.join(member);
         //then
@@ -43,7 +44,7 @@ class MemberServiceTest {
     public void 중복_회원_예외(){
         //given
         Member member1=new Member();
-        member1.setName("spring");
+        member1.setName("hello");
 
         Member member2=new Member();
         member2.setName("spring");
