@@ -22,9 +22,10 @@ public class MemberService {
 
     //회원가입
     public Long join(Member member){
-        validateDuplicateMember(member);
-        memberRepository.save(member);
-        return member.getId();
+
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
     }
 
     public void validateDuplicateMember(Member member){
@@ -36,7 +37,7 @@ public class MemberService {
 
     //전체 회원 조회
     public List<Member> findMembers(){
-        return memberRepository.findAll();
+            return memberRepository.findAll();
     }
 
     public Optional<Member> findOne(Long memberId){
