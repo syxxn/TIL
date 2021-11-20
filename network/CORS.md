@@ -16,8 +16,8 @@ CORS란, 교차 출처 자원 공유(Cross-Origin Resource Sharing)의 줄임말
 
 + cross-origin 요청을 전송하기 전에, `OPTIONS` 메소드로 preflight를 전송한다.
 + 이때 Response로 `Access-Control-Allow-Origin`과 `Access-Control-Allow-Methods`가 넘어오는데, 이는 서버에서 어떤 Origin과 어떤 Method를 허용하는지 브라우저에 알려준다. 
-+ 설정해 놓지 않은 url로 요청이 들어오면 "preflight가 실패했어!"라고 알린다.
-
++ 브라우저에서는 `Access-Control-Allow-Origin` 헤더에 포함된 주소와 자신의 `Origin` 주소를 비교하고, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers` 헤더의 값과 요청을 비교하는 등의 검증 절차를 거치고, 일치하지 않을 경우 요청을 폐기하고 오류를 발생시킨다.
+ 
 <br>
 
 CSRF나 XSS같은 방법으로 정보를 탈취하지 못하도록 막기 위해서 CORS가 필요하다.
