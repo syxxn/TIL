@@ -63,6 +63,38 @@ int n = Integer.parseInt(str);
 
 jackson에서 boolean 필드를 파싱할 때 getter 메소드의 이름을 사용한다.
 
+```java
+@RequestMapping("/test")
+@RestController
+public class TestController {
+
+    @GetMapping
+    public TestDto test() {
+        return new TestDto();
+    }
+
+    @Getter
+    public static class TestDto {
+        private final Boolean isB;
+
+        public TestDto() {
+            this.isB = false;
+        }
+
+    }
+    
+}
+
+/*
+출력값
+{
+    "b": false
+}
+*/
+```
+
+
+
 boolean 자료형 필드명이 'is _'를 갖고, json에서도 'is _'로 보내고 싶을 땐
 
 1. getter명을 변경한다.
@@ -71,6 +103,41 @@ boolean 자료형 필드명이 'is _'를 갖고, json에서도 'is _'로 보내�
    public boolean getIsB(){}
    ```
 
+   ```java
+   @RequestMapping("/test")
+   @RestController
+   public class TestController {
+   
+       @GetMapping
+       public TestDto test() {
+           return new TestDto();
+       }
+   
+       public static class TestDto {
+           private final boolean isB;
+   
+           public TestDto() {
+               this.isB = false;
+           }
+   
+           public boolean getIsB() {
+               return this.isB;
+           }
+   
+       }
+   
+   }
+   
+   /*
+   출력값
+   {
+       "is_b": false
+   }
+   */
+   ```
+
+   
+
 2. @JsonProperty를 사용한다.
 
    ```java
@@ -78,10 +145,58 @@ boolean 자료형 필드명이 'is _'를 갖고, json에서도 'is _'로 보내�
    private boolean isB;
    ```
 
+   ```java
+   @RequestMapping("/test")
+   @RestController
+   public class TestController {
+   
+       @GetMapping
+       public TestDto test() {
+           return new TestDto();
+       }
+   
+       public static class TestDto {
+           @JsonProperty("is_b")
+           private final boolean isB;
+   
+           public TestDto() {
+               this.isB = false;
+           }
+   
+       }
+   
+   }
+   ```
+
+   
+
 3. Boolean 타입으로 선언한다.
 
    ```java
    private Boolean isB;
    ```
 
+   ```java
+   @RequestMapping("/test")
+   @RestController
+   public class TestController {
+   
+       @GetMapping
+       public TestDto test() {
+           return new TestDto();
+       }
+   
+       @Getter
+       public static class TestDto {
+           private final Boolean isB;
+   
+           public TestDto() {
+               this.isB = false;
+           }
+   
+       }
+       
+   }
+   ```
+   
    
