@@ -15,3 +15,9 @@
 + @ModelAttribute를 통한 객체 전달 시 @JsonProperty 어노테이션을 사용하더라도 key값이 변환되지 않는다.
 
   > 당연히 되는 줄 알고 열심히 적어놨었는데 하나도 안 먹혀서 필터링 역할을 못하고 있었다ㅜㅜ
+  
+  > @JsonProperty가 안되는 건 당연한 것이었다!
+  >
+  > @JsonProperty는 jackson 라이브러리에서 제공하는 어노테이션이다. jackson은 json 형태를 java object로 매핑해주는 역할을 한다.
+  >
+  > @ModelAttribute는 객체를 쿼리스트링으로 받는 것이다. json이 아니라!!
