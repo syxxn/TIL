@@ -1,12 +1,16 @@
-## Util 클래스/Facade 클래스
+## Utility 클래스/Facade 클래스
 
-#### XXXUtil
+#### XXXUtility
+
+여러 클래스에서 공통적으로 사용되는 메소드를 모아둔 클래스이다. (Utility class 또는 Helper class라 한다.)
 
 특정 비즈니스 로직과 독립적인 기능들을 util 패키지에 넣어 사용한다.
 
-다른 부분과 의존성이 없고 input 파라미터만을 사용하여 처리하는 경우에는 static 메소드로 구성한다.
+기본적으로 Utility class의 모든 메소드는 static이며, 인스턴스화 될 필요가 없으므로, 기본 생성자를 private으로 만들기도 한다. 또한 상속을 방지하기 위해 클래스를 final로 선언한다.
 
-@UtilityClass 어노테이션을 클래스단에 붙이면 모든 메소드를 정적 메소드로 설정할 수 있다.
+@UtilityClass 어노테이션을 클래스단에 붙이면 모든 메소드를 정적 메소드로 설정할 수 있고, 기본 생성자를 private으로 생성한다.
+
+하나의 Utility class가 커지게 되면 단일 책임 원칙을 위반할 수도 있다.
 
 <br>
 
