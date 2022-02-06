@@ -28,3 +28,4 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 > 인증 자체를 못하거나 토큰이 잘못된 형태일 경우 400을 띄우도록 설정하였다.
 >
 > 
+
