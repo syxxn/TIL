@@ -69,13 +69,14 @@ public class ErrorDecoderImpl implements ErrorDecoder {
 `FeignConfig` 클래스에서 `ErrorDecoderImpl`를 @Bean으로 등록해 주어야 FeignException이 발생했을 때 동작하도록 해 준다.
 
 ```java
-@EnableFeignClients(basePackages = "")
+@EnableFeignClients(basePackages = "com.syxxn.global.feign")
+@Import(ErrorDecoderImpl.class)
 @Configuration
 public class FeignClientsConfig {
     
     @Bean
     @ConditionalOnMissingBean(value = ErrorDecoder.class)
-    public FeignClientExceptionErrorDecoder commonFeignErrorDecoder() {
+    public ErrorDecoderImpl commonFeignErrorDecoder() {
         return new ErrorDecoderImpl();
     }
     
