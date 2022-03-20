@@ -32,6 +32,7 @@ public class Application {
     private Account account;
     private Post post;
     private Boolean isAccepted;
+    private final String version = "v1."; //final 변수
 
     public static class Builder {
         // Required parameters(필수 인자)
@@ -63,11 +64,19 @@ public class Application {
 }
 ```
 
-@Builder를 사용할 때는 @NoArgsConstructor와 @AllArgsConstructor를 사용해야 한다.
+@Builder는 메소드 또는 생성자에 붙일 수 있다. 클래스에 붙이면 @AllArgsConstructor가 기본적으로 붙는다.
 
-> builder().build()를 사용하면 Builder 클래스 내부에 값이 들어가게 되는데, 이 값을 원래의 클래스로 올려 보내주기 위해서 @AllArgsConstructor가 필요하다.
+> builder().build()를 사용하면 Builder 클래스 내부에 값이 들어가게 되는데, 이 값을 원래의 클래스로 올려 보내주기 위해서 생성자가 필요하다. 
+>
+> 가급적이면 클래스보다 @AllArgsConstructor를 사용하는 것보다 따로 생성한 생성자를 사용하는 것을 권장한다.
 
 > @Builder를 사용할 때에는 @AllArgsConstructor만 붙여도 되지만, test에서 ObjectMapper를 사용하기 위해서는 @NoArgsConstructor도 붙여야 한다.
+
+<br>
+
+final 필드의 값을 지정했을 경우에는 값 변경이 불가능하기 때문에 생성자에도 생기지 않는다.
+
+하지만, 값을 지정하지 않은 경우엔 다른 필드와 동일하게 전역 변수로 생성되며, 기본 값인 null이 전달된다.
 
 <br>
 
@@ -116,3 +125,27 @@ public class Application {
   > createdAt 같은 경우는 @CreationTimestamp 같은 어노테이션을 사용하면, 따로 값을 입력받을 수 없다.
   
   또는 소수의 필드만 제외하는 경우에는 `@Builder(access = AccessLevel.NONE)`을 붙여주면 된다.
+
+<br>
+
+https://velog.io/@park2348190/Lombok-Builder%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC
+
+@Singular 어노테이션을 사용하면 빌드에서 리스트 같은 컬렉션 객체 자체를 넘기는 것이 아니라 요소를 추가하는 방식으로 사용할 수 있다고 한다.
+
+```java
+@Builder
+public class User {
+    private String name;
+    
+    @Singular
+    private List<String> friends;
+}
+User user = User.Builder()
+    .name("홍길동")
+    .friends("홍기리")
+    .friends("뽀로로")
+    .build();
+```
+
+
+
