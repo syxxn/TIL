@@ -156,3 +156,5 @@ Docker Swarm을 사용할 때는 JDK, Git 등을 설치하지 않아도 된다. 
   오버레이 네트워크 간 트래픽을 위해 `4789` Port,
 
   클러스터 매니지먼트에서 사용할 수 있도록 2377 Port를 추가적으로 열어주어야 한다.
+![image](https://user-images.githubusercontent.com/64132926/165287026-cf368ab5-f78c-49d3-838b-933c9fbea21c.png)
+![image](https://user-images.githubusercontent.com/64132926/165287105-ec39425c-0bed-4d41-aa7d-b225ef5d9bc7.png)
